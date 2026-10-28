@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Present Continuous Tense — Comprehensive Mastery Assessment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-cream: #f6f8fa;
+      --card-bg: #ffffff;
+      --primary-accent: #2563eb;
+      --primary-dark: #1e3a8a;
+      --primary-medium: #3b82f6;
+      --soft-sand: #cbd5e1;
+      --sand-light: #f1f5f9;
+      --charcoal: #0f172a;
+      --text-muted: #475569;
+      --border-dark: #1e293b;
+      --correct-green: #15803d;
+      --correct-bg: #f0fdf4;
+      --wrong-red: #b91c1c;
+      --wrong-bg: #fef2f2;
+      --shadow-subtle: 0 4px 18px rgba(15, 23, 42, 0.06);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-pill: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', 'Montserrat', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--charcoal);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app-header {
+      background-color: #ffffff;
+      border-bottom: 2px solid var(--border-dark);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .series-tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      background-color: #dbeafe;
+      color: var(--primary-dark);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--border-dark);
+    }
+
+    .header-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    .logo-placeholder {
+      padding: 6px 14px;
+      border: 2px dashed var(--primary-medium);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--sand-light);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    main.main-content {
+      flex: 1;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    .test-progress-bar-wrap {
+      background: #ffffff;
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .progress-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .track {
+      height: 10px;
+      background-color: var(--sand-light);
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--border-dark);
+      overflow: hidden;
+    }
+
+    .track-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #60a5fa, var(--primary-dark));
+      width: 5%;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .questions-nav-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--soft-sand);
+    }
+
+    .q-pill {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border-dark);
+      background-color: #ffffff;
+      color: var(--charcoal);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .q-pill:hover {
+      background-color: var(--sand-light);
+    }
+
+    .q-pill.active {
+      background-color: #bfdbfe;
+      border-color: var(--primary-dark);
+      transform: scale(1.08);
+    }
+
+    .q-pill.answered {
+      background-color: var(--sand-light);
+      color: var(--primary-dark);
+      border-style: solid;
+    }
+
+    .q-pill.correct {
+      background-color: var(--correct-bg);
+      border-color: var(--correct-green);
+      color: var(--correct-green);
+    }
+
+    .q-pill.incorrect {
+      background-color: var(--wrong-bg);
+      border-color: var(--wrong-red);
+      color: var(--wrong-red);
+    }
+
+    .screen {
+      display: none;
+      animation: fadeIn 0.25s ease-out forwards;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-card {
+      background-color: #ffffff;
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .level-badge {
+      font-size: 12px;
+      font-weight: 800;
+      background-color: var(--sand-light);
+      border: 1.5px solid var(--border-dark);
+      padding: 3px 12px;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-heading {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      max-width: 740px;
+    }
+
+    .formula-banner {
+      background-color: #eff6ff;
+      border: 2px solid var(--primary-accent);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .formula-banner .label {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .formula-banner .code {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      background-color: #ffffff;
+      padding: 6px 16px;
+      border-radius: 6px;
+      border: 1.5px solid #93c5fd;
+      font-family: monospace;
+    }
+
+    .syllabus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .syllabus-item {
+      background-color: var(--sand-light);
+      border: 1.5px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .syllabus-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .syllabus-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .test-controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 2px dashed var(--soft-sand);
+    }
+
+    .mode-switch-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .switch-label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      padding: 12px 24px;
+      cursor: pointer;
+      border: 2px solid var(--border-dark);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: #93c5fd;
+      color: var(--charcoal);
+      box-shadow: 0 3px 0 var(--border-dark);
+    }
+
+    .btn-primary:hover {
+      background-color: #60a5fa;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 var(--border-dark);
+    }
+
+    .btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--charcoal);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--sand-light);
+    }
+
+    .btn-dark {
+      background-color: var(--primary-dark);
+      color: #ffffff;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    .question-card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 28px 32px;
+      box-shadow: var(--shadow-subtle);
+      margin-bottom: 24px;
+    }
+
+    .question-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .section-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background-color: var(--sand-light);
+      border: 1px solid var(--border-dark);
+      color: var(--primary-dark);
+    }
+
+    .q-type-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .question-stem {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.35;
+      margin-bottom: 22px;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background-color: #ffffff;
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      width: 100%;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background-color: var(--sand-light);
+      transform: translateX(3px);
+    }
+
+    .option-marker {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      border: 1.5px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      background-color: var(--sand-light);
+      flex-shrink: 0;
+    }
+
+    .option-btn.selected {
+      background-color: #eff6ff;
+      border-color: var(--primary-dark);
+    }
+
+    .option-btn.selected .option-marker {
+      background-color: #93c5fd;
+      color: var(--primary-dark);
+    }
+
+    .option-btn.is-correct {
+      background-color: var(--correct-bg) !important;
+      border-color: var(--correct-green) !important;
+      color: #145532 !important;
+    }
+
+    .option-btn.is-correct .option-marker {
+      background-color: var(--correct-green) !important;
+      color: #ffffff !important;
+      border-color: var(--correct-green) !important;
+    }
+
+    .option-btn.is-wrong {
+      background-color: var(--wrong-bg) !important;
+      border-color: var(--wrong-red) !important;
+      color: #7b1d12 !important;
+    }
+
+    .option-btn.is-wrong .option-marker {
+      background-color: var(--wrong-red) !important;
+      color: #ffffff !important;
+      border-color: var(--wrong-red) !important;
+    }
+
+    .fill-input-box {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .conjugation-field {
+      flex: 1;
+      max-width: 380px;
+      padding: 13px 18px;
+      font-size: 16px;
+      font-family: inherit;
+      font-weight: 600;
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      outline: none;
+      background-color: #ffffff;
+      transition: border-color 0.2s;
+    }
+
+    .conjugation-field:focus {
+      border-color: var(--primary-medium);
+      box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.5);
+    }
+
+    .sentence-tokens-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 14px;
+      background-color: var(--sand-light);
+      border: 1.5px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+    }
+
+    .token-btn {
+      background: #ffffff;
+      border: 1.5px solid var(--border-dark);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .token-btn:hover:not(:disabled) {
+      background-color: #bfdbfe;
+    }
+
+    .token-btn.selected {
+      background-color: var(--primary-dark);
+      color: #ffffff;
+    }
+
+    .explanation-callout {
+      display: none;
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      margin-top: 18px;
+      border-left: 5px solid var(--primary-dark);
+      background-color: var(--sand-light);
+      animation: fadeIn 0.2s ease-in;
+    }
+
+    .explanation-callout.show {
+      display: block;
+    }
+
+    .exp-title {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .exp-body {
+      font-size: 14px;
+      color: #1e293b;
+      line-height: 1.45;
+    }
+
+    .question-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .results-hero-card {
+      background-color: #ffffff;
+      border: 2px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .score-circle {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background-color: #bfdbfe;
+      border: 4px solid var(--border-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .score-num {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--primary-dark);
+    }
+
+    .score-total {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary-dark);
+    }
+
+    .cefr-breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+      text-align: left;
+    }
+
+    .cefr-card {
+      background-color: var(--sand-light);
+      border: 1.5px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+
+    .cefr-badge {
+      font-size: 11px;
+      font-weight: 800;
+      background-color: #dbeafe;
+      color: var(--primary-dark);
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+      border: 1px solid var(--border-dark);
+    }
+
+    .cefr-score-text {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .review-item {
+      background-color: #ffffff;
+      border: 1.5px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+    }
+
+    .review-item.pass {
+      border-left: 6px solid var(--correct-green);
+    }
+
+    .review-item.fail {
+      border-left: 6px solid var(--wrong-red);
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .app-header {
+        padding: 12px 16px;
+      }
+      .logo-placeholder {
+        padding: 4px 10px;
+        font-size: 9px;
+      }
+      .hero-card, .question-card, .results-hero-card {
+        padding: 22px 18px;
+      }
+      .cefr-breakdown-grid {
+        grid-template-columns: 1fr;
+      }
+      .fill-input-box {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .conjugation-field {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Global Header -->
+  <header class="app-header">
+    <div class="header-branding">
+      <span class="series-tag">Session 5 • Grammar Test</span>
+      <h1 class="header-title">Present Continuous Assessment</h1>
+    </div>
+    <!-- Designated Empty Branded Logo Box -->
+    <div class="logo-placeholder" title="Branded Logo Placeholder">
+      GAAM Academy
+    </div>
+  </header>
+
+  <main class="main-content">
+    
+    <!-- SCREEN 1: COVER & INSTRUCTIONS -->
+    <section id="screen-intro" class="screen active">
+      <div class="hero-card">
+        <div class="hero-badge-row">
+          <span class="level-badge">Session 5 Comprehensive Guide</span>
+          <span style="font-size: 13px; font-weight: 600; color: var(--text-muted);">20 Comprehensive Questions</span>
+        </div>
+        
+        <h2 class="hero-heading">Present Continuous Mastery Assessment</h2>
+        <p class="hero-sub">
+          Test your mastery of the Present Continuous Tense based on the Session 5 Guide: basic formula, helping verb positioning, all 6 core uses, comparison with the Present Simple, stative verb restrictions, and habit classifications.
+        </p>
+
+        <div class="formula-banner">
+          <span class="label"><i class="fa-solid fa-calculator"></i> Basic Formula</span>
+          <span class="code">Subject + am / is / are + verb-ing</span>
+        </div>
+
+        <div class="syllabus-grid">
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-shapes"></i> 1. Structural Framework</h4>
+            <p>Positive, negative, question, and negative question formulas with <em>am / is / are</em>.</p>
+          </div>
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-bolt"></i> 2. Actions Right Now</h4>
+            <p>Unfinished events happening at the exact moment of speaking (<em>now, at the moment</em>).</p>
+          </div>
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-hourglass-half"></i> 3. Temporary Situations & Habits</h4>
+            <p>Limited durations (<em>for a few weeks, for now</em>) and habits active <em>these days</em>.</p>
+          </div>
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-calendar-check"></i> 4. Definite Future Plans</h4>
+            <p>Fixed future arrangements with a clear time or location (<em>tomorrow, at 7 p.m.</em>).</p>
+          </div>
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-triangle-exclamation"></i> 5. Irregular & Annoying Habits</h4>
+            <p>Expressing emotional annoyance with <em>constantly</em> and <em>forever</em> vs. neutral simple present.</p>
+          </div>
+          <div class="syllabus-item">
+            <h4><i class="fa-solid fa-book-open"></i> 6. Historic Present & Stative Verbs</h4>
+            <p>Storytelling background scenes and the rule restricting mental/possession verbs (<em>know, own</em>).</p>
+          </div>
+        </div>
+
+        <div class="test-controls-bar">
+          <div class="mode-switch-group">
+            <label class="switch-label">
+              <input type="checkbox" id="instant-feedback-toggle" checked style="accent-color: var(--primary-accent); width: 18px; height: 18px;">
+              <span>Instant explanations after each question</span>
+            </label>
+          </div>
+          
+          <button id="btn-start" class="btn btn-primary">
+            <span>Begin Assessment</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: ACTIVE QUIZ VIEW -->
+    <section id="screen-quiz" class="screen">
+      
+      <!-- Progress Bar & Question Jump Strip -->
+      <div class="test-progress-bar-wrap">
+        <div class="progress-top-row">
+          <span id="counter-display">Question 1 of 20</span>
+          <span id="progress-percent">5% Complete</span>
+        </div>
+        <div class="track">
+          <div id="progress-fill" class="track-fill"></div>
+        </div>
+        <div class="questions-nav-strip" id="q-nav-strip">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Question Card Container -->
+      <div class="question-card">
+        <div class="question-meta-row">
+          <span id="q-section-badge" class="section-tag">Section 1: Uses</span>
+          <span id="q-type-badge" class="q-type-badge">Multiple Choice</span>
+        </div>
+
+        <h3 id="q-stem" class="question-stem">
+          Question prompt will appear here...
+        </h3>
+
+        <!-- Dynamic Answer Area -->
+        <div id="q-interactive-zone">
+          <!-- Populated by JS based on question type -->
+        </div>
+
+        <!-- Explanation callout -->
+        <div id="q-explanation-box" class="explanation-callout">
+          <div class="exp-title">
+            <i class="fa-solid fa-circle-info"></i>
+            <span id="exp-status-heading">Grammar Rule</span>
+          </div>
+          <p id="exp-text" class="exp-body">Rule text explanation...</p>
+        </div>
+      </div>
+
+      <!-- Footer Buttons -->
+      <div class="question-footer-nav">
+        <button id="btn-prev-q" class="btn btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Previous</span>
+        </button>
+
+        <div style="display: flex; gap: 10px;">
+          <button id="btn-check-q" class="btn btn-primary" style="display: none;">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Check Answer</span>
+          </button>
+          <button id="btn-next-q" class="btn btn-dark">
+            <span>Next Question</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: RESULTS & CEFR EVALUATION -->
+    <section id="screen-results" class="screen">
+      <div class="results-hero-card">
+        <div class="score-circle">
+          <span id="res-score-pct" class="score-num">0%</span>
+          <span id="res-fraction" class="score-total">0 / 20</span>
+        </div>
+
+        <h2 id="res-verdict-title" style="font-size: 26px; font-weight: 800; color: var(--primary-dark); margin-bottom: 8px;">
+          Assessment Completed
+        </h2>
+        <p id="res-verdict-msg" style="font-size: 15px; color: var(--text-muted); max-width: 620px; margin: 0 auto;">
+          Summary feedback will appear based on your mastery performance.
+        </p>
+
+        <!-- CEFR Matrix Breakdown -->
+        <div class="cefr-breakdown-grid">
+          <div class="cefr-card">
+            <span class="cefr-badge">Foundation (A1-A2)</span>
+            <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Formulas &amp; Actions Right Now</h4>
+            <div id="cefr-a1-stat" class="cefr-score-text">0/7</div>
+            <p id="cefr-a1-label" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Evaluating...</p>
+          </div>
+
+          <div class="cefr-card">
+            <span class="cefr-badge">Intermediate (A2-B1)</span>
+            <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Temporary States &amp; Future Plans</h4>
+            <div id="cefr-a2-stat" class="cefr-score-text">0/7</div>
+            <p id="cefr-a2-label" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Evaluating...</p>
+          </div>
+
+          <div class="cefr-card">
+            <span class="cefr-badge">Advanced Nuances (B1-B2)</span>
+            <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Annoyance, Storytelling &amp; Stative</h4>
+            <div id="cefr-b1-stat" class="cefr-score-text">0/6</div>
+            <p id="cefr-b1-label" style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Evaluating...</p>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 14px; margin-top: 32px; flex-wrap: wrap;">
+          <button id="btn-retake" class="btn btn-primary">
+            <i class="fa-solid fa-rotate-right"></i>
+            <span>Retake Full Test</span>
+          </button>
+          <button id="btn-filter-missed" class="btn btn-secondary">
+            <i class="fa-solid fa-filter"></i>
+            <span>Review Missed Questions</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Itemized review breakdown -->
+      <h3 style="font-size: 20px; font-weight: 800; color: var(--primary-dark); margin: 32px 0 16px;">
+        Detailed Question Review
+      </h3>
+      <div id="review-container" class="review-list">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 20-Question Database covering all Session 5 Present Continuous Tense topics
+    const quizData = [
+      {
+        id: 1,
+        tier: "Foundation",
+        section: "Basic Formula",
+        type: "mcq",
+        stem: "What is the foundational formula for forming a positive Present Continuous sentence?",
+        options: [
+          "Subject + am/is/are + verb-ing",
+          "Subject + do/does + base verb",
+          "Subject + will + be + base verb",
+          "Subject + am/is/are + past participle"
+        ],
+        correct: 0,
+        rule: "Rule (Page 1 & 2): The basic positive formula is Subject + am/is/are + verb-ing (e.g., 'I am working', 'He is sleeping', 'They are studying')."
+      },
+      {
+        id: 2,
+        tier: "Foundation",
+        section: "Verb Conjugation",
+        type: "fill",
+        stem: "Complete with the correct helping verb: 'Look! It ________ (am/is/are) raining outside.'",
+        baseVerb: "helping verb",
+        acceptableAnswers: ["is"],
+        rule: "Rule (Page 3): Third-person singular subjects (He / She / It) strictly take 'is' as their auxiliary helping verb."
+      },
+      {
+        id: 3,
+        tier: "Foundation",
+        section: "Rule Position",
+        type: "mcq",
+        stem: "According to the rule of position, how do helping verbs behave in question structures?",
+        options: [
+          "They shift immediately before the subject (Am/Is/Are + subject + verb-ing?).",
+          "They remain locked between the subject and the main verb.",
+          "They are replaced by do or does at the beginning of the sentence.",
+          "They move to the very end of the sentence after the verb-ing."
+        ],
+        correct: 0,
+        rule: "Rule (Page 3): Helping verbs sit before main verbs in statements ('She is writing'), but shift before subjects in questions ('Is she writing?')."
+      },
+      {
+        id: 4,
+        tier: "Foundation",
+        section: "Negative Questions",
+        type: "mcq",
+        stem: "Which of the following represents a correct negative question in the Present Continuous?",
+        options: [
+          "Isn't he eating now?",
+          "Does he not eating now?",
+          "Is he not eat now?",
+          "Doesn't he is eating now?"
+        ],
+        correct: 0,
+        rule: "Rule (Page 2): Negative questions follow the formula: Am/Is/Are + not + subject + verb-ing? (e.g., 'Isn't he eating now?', 'Aren't they studying?')."
+      },
+      {
+        id: 5,
+        tier: "Foundation",
+        section: "Use 1: Actions Right Now",
+        type: "mcq",
+        stem: "Which time marker is explicitly used for actions happening at the exact moment of speaking?",
+        options: [
+          "at the moment",
+          "every day",
+          "two years ago",
+          "once a week"
+        ],
+        correct: 0,
+        rule: "Rule (Page 4): Use 1 of 6 covers unfinished actions at the exact moment of speaking, indicated by markers like 'now', 'right now', and 'at the moment'."
+      },
+      {
+        id: 6,
+        tier: "Foundation",
+        section: "Conjugation of 'We'",
+        type: "fill",
+        stem: "Complete the sentence with the correct helping verb: 'We ________ (am/is/are) attending online classes this month.'",
+        baseVerb: "helping verb",
+        acceptableAnswers: ["are"],
+        rule: "Rule (Page 3 & 5): The plural subjects 'You / We / They' take the helping verb 'are' (e.g., 'We are attending online classes this month')."
+      },
+      {
+        id: 7,
+        tier: "Foundation",
+        section: "Error Spotting",
+        type: "token",
+        stem: "Click the single word in this sentence that contains the grammatical error:",
+        sentence: ["They", "is", "eating", "lunch", "right", "now."],
+        errorIndex: 1,
+        errorCorrection: "are",
+        rule: "Rule (Page 3): 'They' is plural and requires 'are', never 'is' ('They are eating lunch right now')."
+      },
+      {
+        id: 8,
+        tier: "Intermediate",
+        section: "Use 2: Temporary Habits",
+        type: "mcq",
+        stem: "Why is the sentence 'He's working a lot these days' in the Present Continuous?",
+        options: [
+          "It describes a temporary habit active more frequently than usual during this specific period.",
+          "It states a permanent universal law of nature.",
+          "It expresses a fixed historical event from last night.",
+          "It indicates a regular scheduled habit that never changes."
+        ],
+        correct: 0,
+        rule: "Rule (Page 5): Use 2 of 6 describes temporary habits active during a specific period or occurring more frequently than usual (signals: 'these days', 'this week', 'lately')."
+      },
+      {
+        id: 9,
+        tier: "Intermediate",
+        section: "Use 3: Temporary Situations",
+        type: "mcq",
+        stem: "What does the sentence 'I'm living in London for a few weeks' communicate?",
+        options: [
+          "A situation that remains true for a limited duration rather than a permanent state.",
+          "A permanent lifelong residence in London.",
+          "An annoying habit that causes emotional irritation.",
+          "A completed action that ended in the distant past."
+        ],
+        correct: 0,
+        rule: "Rule (Page 6 & 11): Use 3 of 6 describes temporary situations of limited duration (marked by 'for now', 'for a few weeks', 'temporarily') in contrast to permanent states ('She lives in London')."
+      },
+      {
+        id: 10,
+        tier: "Intermediate",
+        section: "Duration Indicators",
+        type: "fill",
+        stem: "Complete the temporary situation example from Session 5: 'I am staying with my uncle ________ (for now / always).'",
+        baseVerb: "duration indicator",
+        acceptableAnswers: ["for now"],
+        rule: "Rule (Page 6): 'For now', 'for a few weeks', and 'temporarily' are key duration indicators signaling a temporary situation in the Present Continuous."
+      },
+      {
+        id: 11,
+        tier: "Intermediate",
+        section: "Use 4: Definite Future Plans",
+        type: "mcq",
+        stem: "In 'I'm meeting my father tomorrow', what establishes that the sentence refers to the future?",
+        options: [
+          "The explicit future time signal ('tomorrow') combined with the arrangement.",
+          "The auxiliary verb 'am' always refers to next year.",
+          "The verb 'meeting' can only ever refer to future events.",
+          "The sentence actually describes an action happening at the current moment."
+        ],
+        correct: 0,
+        rule: "Rule (Page 7 & 14): In fixed future arrangements, the upcoming event is already fixed with a set time/location, and the time expression ('tomorrow', 'tonight', 'on Tuesday') makes the future context clear."
+      },
+      {
+        id: 12,
+        tier: "Intermediate",
+        section: "Future Time Signals",
+        type: "mcq",
+        stem: "Which of the following is listed in Session 5 as a future time signal for fixed arrangements?",
+        options: [
+          "on Tuesday",
+          "every Thursday",
+          "once a month",
+          "yesterday afternoon"
+        ],
+        correct: 0,
+        rule: "Rule (Page 7): Future time signals for definite arrangements include 'tomorrow', 'tonight', 'later', and 'on Tuesday' (e.g., 'She is travelling on Tuesday')."
+      },
+      {
+        id: 13,
+        tier: "Intermediate",
+        section: "Present Simple vs. Continuous",
+        type: "mcq",
+        stem: "Contrast 'I work every day' with 'I am working right now':",
+        options: [
+          "'I work every day' is a regular scheduled habit, while 'I am working right now' is an action in progress now.",
+          "'I work every day' is a temporary habit, while 'I am working right now' is a permanent fact.",
+          "Both sentences mean the exact same thing with no functional difference.",
+          "'I work every day' is an annoying habit, while 'I am working right now' is a future plan."
+        ],
+        correct: 0,
+        rule: "Rule (Page 11): The Present Simple expresses generally true facts and regular scheduled habits, whereas the Present Continuous expresses actions happening now or temporary situations."
+      },
+      {
+        id: 14,
+        tier: "Intermediate",
+        section: "Error Spotting",
+        type: "token",
+        stem: "Click the word in this question that breaks the Present Continuous question structure:",
+        sentence: ["Why", "you", "are", "living", "here", "temporarily?"],
+        errorIndex: 2,
+        errorCorrection: "are you",
+        rule: "Rule (Page 2 & 3): In WH-questions, the helping verb must invert before the subject: 'Why are you living here temporarily?'"
+      },
+      {
+        id: 15,
+        tier: "Advanced Nuances",
+        section: "Use 5: Annoying Habits",
+        type: "mcq",
+        stem: "What emotional nuance is conveyed by 'You're forever losing your keys!'?",
+        options: [
+          "Irritation or annoyance regarding an unpredictable, repeated action.",
+          "A calm, factual statement about a scheduled weekly routine.",
+          "A fixed future arrangement scheduled with a lock company.",
+          "A neutral scientific truth that cannot be disputed."
+        ],
+        correct: 0,
+        rule: "Rule (Page 8 & 10): Use 5 of 6 expresses irritation, annoyance, or criticism about unpredictable repeated actions using adverbs like 'forever' or 'constantly'."
+      },
+      {
+        id: 16,
+        tier: "Advanced Nuances",
+        section: "Comparative Nuance: Annoyance",
+        type: "mcq",
+        stem: "How does 'She always loses her keys' differ from 'She is always losing her keys!'?",
+        options: [
+          "The first states a neutral regular habit; the second emphasizes an annoyed emotional reaction.",
+          "The first is an action happening right now; the second happened in the past.",
+          "The first is grammatically incorrect; only the continuous form is allowed with 'always'.",
+          "The first expresses a definite future plan; the second expresses a scientific fact."
+        ],
+        correct: 0,
+        rule: "Rule (Page 8): 'She always loses her keys' is a neutral simple present statement of fact, while 'She is always losing her keys!' adds emotional emphasis and irritation."
+      },
+      {
+        id: 17,
+        tier: "Advanced Nuances",
+        section: "Use 6: Historic Present",
+        type: "mcq",
+        stem: "In storytelling narratives (e.g., 'So I'm drinking coffee at home last night...'), what role does the Present Continuous play?",
+        options: [
+          "It provides the vivid background setup, while Present Simple delivers the main actions.",
+          "It expresses a fixed future timetable for next week.",
+          "It indicates that coffee is currently being consumed as the speaker talks.",
+          "It indicates an irregular habit that annoys the narrator."
+        ],
+        correct: 0,
+        rule: "Rule (Page 9 & 14): In the historic present storytelling mode, the Present Continuous creates an immediate background scene ('I'm drinking coffee...'), while the Present Simple carries the main foreground actions."
+      },
+      {
+        id: 18,
+        tier: "Advanced Nuances",
+        section: "Stative Verb Restriction",
+        type: "mcq",
+        stem: "Why is 'I am knowing the answer' grammatically incorrect?",
+        options: [
+          "Stative verbs express mental states rather than physical progress and avoid continuous forms.",
+          "The subject 'I' cannot be paired with the verb 'know'.",
+          "The verb 'know' can only be used with third-person singular pronouns.",
+          "It should be written with 'will be knowing' instead."
+        ],
+        correct: 0,
+        rule: "Rule (Page 12 & 14): Stative verbs (expressing mental states, emotions, or possession like 'know', 'believe', 'own') take standard simple tenses ('I know the answer') and avoid continuous forms."
+      },
+      {
+        id: 19,
+        tier: "Advanced Nuances",
+        section: "Stative of Possession",
+        type: "fill",
+        stem: "Correct this stative error from Session 5: Instead of 'He is owning a car', the correct standard form is 'He ________ (own) a car.'",
+        baseVerb: "own",
+        acceptableAnswers: ["owns"],
+        rule: "Rule (Page 12): 'Own' is a stative verb of possession. It must be written in the Present Simple with 3rd-person '-s' -> 'He owns a car'."
+      },
+      {
+        id: 20,
+        tier: "Advanced Nuances",
+        section: "Habit Classification",
+        type: "true_false",
+        stem: "True or False: According to Session 5, predictable scheduled habits take Present Simple, while irregular or temporary habits take Present Continuous.",
+        options: [
+          "True (Scheduled habits = Simple; Irregular/Temporary = Continuous)",
+          "False (All habits regardless of frequency must use Present Simple)"
+        ],
+        correct: 0,
+        rule: "Rule (Page 13): True! Present Simple is used for regular predictable scheduled habits (e.g., 'every Thursday'), while Present Continuous is used for irregular or temporary habits (e.g., 'these days', 'constantly')."
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let userAnswers = {};
+    let isInstantFeedback = true;
+    let checkedQuestions = {};
+    let filteredMissedIndices = null;
+
+    // DOM Elements
+    const screenIntro = document.getElementById("screen-intro");
+    const screenQuiz = document.getElementById("screen-quiz");
+    const screenResults = document.getElementById("screen-results");
+
+    const btnStart = document.getElementById("btn-start");
+    const instantToggle = document.getElementById("instant-feedback-toggle");
+    
+    const counterDisplay = document.getElementById("counter-display");
+    const progressPercent = document.getElementById("progress-percent");
+    const progressFill = document.getElementById("progress-fill");
+    const qNavStrip = document.getElementById("q-nav-strip");
+
+    const qSectionBadge = document.getElementById("q-section-badge");
+    const qTypeBadge = document.getElementById("q-type-badge");
+    const qStem = document.getElementById("q-stem");
+    const qInteractiveZone = document.getElementById("q-interactive-zone");
+    const qExplanationBox = document.getElementById("q-explanation-box");
+    const expStatusHeading = document.getElementById("exp-status-heading");
+    const expText = document.getElementById("exp-text");
+
+    const btnPrevQ = document.getElementById("btn-prev-q");
+    const btnNextQ = document.getElementById("btn-next-q");
+    const btnCheckQ = document.getElementById("btn-check-q");
+
+    const resScorePct = document.getElementById("res-score-pct");
+    const resFraction = document.getElementById("res-fraction");
+    const resVerdictTitle = document.getElementById("res-verdict-title");
+    const resVerdictMsg = document.getElementById("res-verdict-msg");
+    const cefrA1Stat = document.getElementById("cefr-a1-stat");
+    const cefrA1Label = document.getElementById("cefr-a1-label");
+    const cefrA2Stat = document.getElementById("cefr-a2-stat");
+    const cefrA2Label = document.getElementById("cefr-a2-label");
+    const cefrB1Stat = document.getElementById("cefr-b1-stat");
+    const cefrB1Label = document.getElementById("cefr-b1-label");
+    const reviewContainer = document.getElementById("review-container");
+    const btnRetake = document.getElementById("btn-retake");
+    const btnFilterMissed = document.getElementById("btn-filter-missed");
+
+    function initApp() {
+      btnStart.addEventListener("click", startAssessment);
+      btnPrevQ.addEventListener("click", () => navigateQuestion(-1));
+      btnNextQ.addEventListener("click", handleNextOrFinish);
+      btnCheckQ.addEventListener("click", checkCurrentAnswer);
+      btnRetake.addEventListener("click", resetQuiz);
+      btnFilterMissed.addEventListener("click", reviewMissedOnly);
+
+      instantToggle.addEventListener("change", (e) => {
+        isInstantFeedback = e.target.checked;
+        updateCheckButtonVisibility();
+      });
+    }
+
+    function startAssessment() {
+      isInstantFeedback = instantToggle.checked;
+      filteredMissedIndices = null;
+      currentQuestionIndex = 0;
+      userAnswers = {};
+      checkedQuestions = {};
+      
+      switchScreen(screenQuiz);
+      buildNavStrip();
+      renderCurrentQuestion();
+    }
+
+    function switchScreen(targetScreen) {
+      document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+      targetScreen.classList.add("active");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function buildNavStrip() {
+      qNavStrip.innerHTML = "";
+      const questionsToUse = getActiveQuestionList();
+
+      questionsToUse.forEach((q, idx) => {
+        const pill = document.createElement("button");
+        pill.className = "q-pill";
+        pill.textContent = idx + 1;
+        pill.addEventListener("click", () => {
+          currentQuestionIndex = idx;
+          renderCurrentQuestion();
+        });
+        qNavStrip.appendChild(pill);
+      });
+      updateNavPills();
+    }
+
+    function getActiveQuestionList() {
+      if (filteredMissedIndices) {
+        return filteredMissedIndices.map(i => quizData[i]);
+      }
+      return quizData;
+    }
+
+    function updateNavPills() {
+      const pills = qNavStrip.querySelectorAll(".q-pill");
+      const list = getActiveQuestionList();
+
+      pills.forEach((p, idx) => {
+        p.classList.remove("active", "answered", "correct", "incorrect");
+        if (idx === currentQuestionIndex) {
+          p.classList.add("active");
+        }
+        
+        const qObj = list[idx];
+        const ans = userAnswers[qObj.id];
+
+        if (ans !== undefined) {
+          if (checkedQuestions[qObj.id]) {
+            const isCorr = isAnswerCorrect(qObj, ans);
+            p.classList.add(isCorr ? "correct" : "incorrect");
+          } else {
+            p.classList.add("answered");
+          }
+        }
+      });
+    }
+
+    function renderCurrentQuestion() {
+      const questions = getActiveQuestionList();
+      const q = questions[currentQuestionIndex];
+      const totalQ = questions.length;
+
+      counterDisplay.textContent = `Question ${currentQuestionIndex + 1} of ${totalQ}`;
+      const pct = Math.round(((currentQuestionIndex + 1) / totalQ) * 100);
+      progressPercent.textContent = `${pct}% Complete`;
+      progressFill.style.width = `${pct}%`;
+
+      qSectionBadge.textContent = `${q.tier} • ${q.section}`;
+      
+      let typeLabel = "Multiple Choice";
+      if (q.type === "fill") typeLabel = "Fill-in Form";
+      if (q.type === "token") typeLabel = "Identify the Error";
+      if (q.type === "true_false") typeLabel = "Conceptual True / False";
+      qTypeBadge.textContent = typeLabel;
+
+      qStem.textContent = q.stem;
+
+      qInteractiveZone.innerHTML = "";
+      const savedAnswer = userAnswers[q.id];
+      const isAlreadyChecked = checkedQuestions[q.id];
+
+      if (q.type === "mcq" || q.type === "true_false") {
+        renderChoiceOptions(q, savedAnswer, isAlreadyChecked);
+      } else if (q.type === "fill") {
+        renderFillInput(q, savedAnswer, isAlreadyChecked);
+      } else if (q.type === "token") {
+        renderTokenSelector(q, savedAnswer, isAlreadyChecked);
+      }
+
+      if (isAlreadyChecked) {
+        showExplanation(q, isAnswerCorrect(q, savedAnswer));
+      } else {
+        qExplanationBox.classList.remove("show");
+      }
+
+      btnPrevQ.disabled = (currentQuestionIndex === 0);
+      btnNextQ.innerHTML = (currentQuestionIndex === totalQ - 1)
+        ? `<span>Finish &amp; View Results</span> <i class="fa-solid fa-flag-checkered"></i>`
+        : `<span>Next Question</span> <i class="fa-solid fa-arrow-right"></i>`;
+
+      updateCheckButtonVisibility();
+      updateNavPills();
+    }
+
+    function renderChoiceOptions(q, savedAnswer, isChecked) {
+      const grid = document.createElement("div");
+      grid.className = "options-grid";
+
+      q.options.forEach((optText, optIdx) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        if (savedAnswer === optIdx) btn.classList.add("selected");
+
+        if (isChecked) {
+          btn.disabled = true;
+          if (optIdx === q.correct) {
+            btn.classList.add("is-correct");
+          } else if (savedAnswer === optIdx) {
+            btn.classList.add("is-wrong");
+          }
+        }
+
+        const marker = document.createElement("span");
+        marker.className = "option-marker";
+        marker.textContent = String.fromCharCode(65 + optIdx);
+
+        const txt = document.createElement("span");
+        txt.textContent = optText;
+
+        btn.appendChild(marker);
+        btn.appendChild(txt);
+
+        btn.addEventListener("click", () => {
+          if (isChecked) return;
+          userAnswers[q.id] = optIdx;
+          renderCurrentQuestion();
+          if (isInstantFeedback) {
+            checkCurrentAnswer();
+          }
+        });
+
+        grid.appendChild(btn);
+      });
+
+      qInteractiveZone.appendChild(grid);
+    }
+
+    function renderFillInput(q, savedAnswer, isChecked) {
+      const wrap = document.createElement("div");
+      wrap.className = "fill-input-box";
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "conjugation-field";
+      input.placeholder = "Type your answer here...";
+      input.value = savedAnswer || "";
+      input.disabled = isChecked;
+
+      input.addEventListener("input", (e) => {
+        userAnswers[q.id] = e.target.value.trim();
+        updateNavPills();
+      });
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !isChecked && userAnswers[q.id]) {
+          checkCurrentAnswer();
+        }
+      });
+
+      wrap.appendChild(input);
+      qInteractiveZone.appendChild(wrap);
+    }
+
+    function renderTokenSelector(q, savedAnswer, isChecked) {
+      const row = document.createElement("div");
+      row.className = "sentence-tokens-row";
+
+      q.sentence.forEach((word, tokenIdx) => {
+        const tokenBtn = document.createElement("button");
+        tokenBtn.className = "token-btn";
+        tokenBtn.textContent = word;
+
+        if (savedAnswer === tokenIdx) {
+          tokenBtn.classList.add("selected");
+        }
+
+        if (isChecked) {
+          tokenBtn.disabled = true;
+          if (tokenIdx === q.errorIndex) {
+            tokenBtn.style.backgroundColor = "var(--correct-green)";
+            tokenBtn.style.color = "#ffffff";
+            tokenBtn.style.borderColor = "var(--correct-green)";
+          } else if (savedAnswer === tokenIdx) {
+            tokenBtn.style.backgroundColor = "var(--wrong-red)";
+            tokenBtn.style.color = "#ffffff";
+            tokenBtn.style.borderColor = "var(--wrong-red)";
+          }
+        }
+
+        tokenBtn.addEventListener("click", () => {
+          if (isChecked) return;
+          userAnswers[q.id] = tokenIdx;
+          renderCurrentQuestion();
+          if (isInstantFeedback) {
+            checkCurrentAnswer();
+          }
+        });
+
+        row.appendChild(tokenBtn);
+      });
+
+      qInteractiveZone.appendChild(row);
+    }
+
+    function isAnswerCorrect(q, ans) {
+      if (ans === undefined || ans === null) return false;
+      if (q.type === "mcq" || q.type === "true_false") {
+        return ans === q.correct;
+      }
+      if (q.type === "token") {
+        return ans === q.errorIndex;
+      }
+      if (q.type === "fill") {
+        const cleaned = String(ans).toLowerCase().trim();
+        return q.acceptableAnswers.some(a => a.toLowerCase() === cleaned);
+      }
+      return false;
+    }
+
+    function updateCheckButtonVisibility() {
+      const questions = getActiveQuestionList();
+      const q = questions[currentQuestionIndex];
+      const ans = userAnswers[q.id];
+      const isAlreadyChecked = checkedQuestions[q.id];
+
+      if (!isInstantFeedback && !isAlreadyChecked && ans !== undefined && ans !== "") {
+        btnCheckQ.style.display = "inline-flex";
+      } else {
+        btnCheckQ.style.display = "none";
+      }
+    }
+
+    function checkCurrentAnswer() {
+      const questions = getActiveQuestionList();
+      const q = questions[currentQuestionIndex];
+      const ans = userAnswers[q.id];
+
+      if (ans === undefined || ans === "") return;
+
+      checkedQuestions[q.id] = true;
+      const correct = isAnswerCorrect(q, ans);
+      showExplanation(q, correct);
+      renderCurrentQuestion();
+    }
+
+    function showExplanation(q, correct) {
+      qExplanationBox.classList.add("show");
+      if (correct) {
+        qExplanationBox.style.borderLeftColor = "var(--correct-green)";
+        expStatusHeading.innerHTML = `<span style="color:var(--correct-green);">Correct!</span> ${q.section}`;
+      } else {
+        qExplanationBox.style.borderLeftColor = "var(--wrong-red)";
+        expStatusHeading.innerHTML = `<span style="color:var(--wrong-red);">Incorrect</span> — Review Session 5 Rule`;
+      }
+      expText.textContent = q.rule;
+    }
+
+    function navigateQuestion(delta) {
+      const questions = getActiveQuestionList();
+      currentQuestionIndex += delta;
+      if (currentQuestionIndex < 0) currentQuestionIndex = 0;
+      if (currentQuestionIndex >= questions.length) currentQuestionIndex = questions.length - 1;
+      renderCurrentQuestion();
+    }
+
+    function handleNextOrFinish() {
+      const questions = getActiveQuestionList();
+      if (currentQuestionIndex < questions.length - 1) {
+        navigateQuestion(1);
+      } else {
+        finishAndShowResults();
+      }
+    }
+
+    function finishAndShowResults() {
+      let totalCorrect = 0;
+      const totalQ = quizData.length;
+
+      const cefrStats = {
+        Foundation: { correct: 0, total: 0 },
+        Intermediate: { correct: 0, total: 0 },
+        Advanced: { correct: 0, total: 0 }
+      };
+
+      quizData.forEach(q => {
+        let cat = "Foundation";
+        if (q.tier === "Intermediate") cat = "Intermediate";
+        if (q.tier === "Advanced Nuances") cat = "Advanced";
+        
+        cefrStats[cat].total++;
+
+        const userAns = userAnswers[q.id];
+        const isCorr = isAnswerCorrect(q, userAns);
+
+        if (isCorr) {
+          totalCorrect++;
+          cefrStats[cat].correct++;
+        }
+      });
+
+      const pctScore = Math.round((totalCorrect / totalQ) * 100);
+
+      resScorePct.textContent = `${pctScore}%`;
+      resFraction.textContent = `${totalCorrect} / ${totalQ} Correct`;
+
+      if (pctScore >= 90) {
+        resVerdictTitle.textContent = "Outstanding Session 5 Mastery!";
+        resVerdictMsg.textContent = "Excellent! You have mastered the formula, position rules, all 6 core uses, stative verb restrictions, and storytelling nuances.";
+      } else if (pctScore >= 75) {
+        resVerdictTitle.textContent = "Solid Competence";
+        resVerdictMsg.textContent = "Great job! Your grasp of current actions and temporary states is strong. Take a closer look at stative restrictions and annoying habit nuances.";
+      } else {
+        resVerdictTitle.textContent = "Needs Further Practice";
+        resVerdictMsg.textContent = "Keep reviewing Session 5! Focus especially on the helping verb conjugation rules, negative question structures, and duration indicators.";
+      }
+
+      renderCefrBox(cefrA1Stat, cefrA1Label, cefrStats.Foundation);
+      renderCefrBox(cefrA2Stat, cefrA2Label, cefrStats.Intermediate);
+      renderCefrBox(cefrB1Stat, cefrB1Label, cefrStats.Advanced);
+
+      renderReviewList();
+      switchScreen(screenResults);
+    }
+
+    function renderCefrBox(statEl, labelEl, data) {
+      statEl.textContent = `${data.correct} / ${data.total}`;
+      const ratio = data.total > 0 ? data.correct / data.total : 0;
+      if (ratio >= 0.85) {
+        labelEl.textContent = "Mastered (Strong)";
+        labelEl.style.color = "var(--correct-green)";
+      } else if (ratio >= 0.6) {
+        labelEl.textContent = "Competent (Minor errors)";
+        labelEl.style.color = "var(--primary-dark)";
+      } else {
+        labelEl.textContent = "Review Required";
+        labelEl.style.color = "var(--wrong-red)";
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"
+      })[char]);
+    }
+
+    function renderReviewList() {
+      reviewContainer.innerHTML = "";
+
+      quizData.forEach((q, i) => {
+        const ans = userAnswers[q.id];
+        const pass = isAnswerCorrect(q, ans);
+
+        const card = document.createElement("div");
+        card.className = `review-item ${pass ? 'pass' : 'fail'}`;
+
+        let userAnsText = "Not answered";
+        let correctAnsText = "";
+
+        if (q.type === "mcq" || q.type === "true_false") {
+          userAnsText = (ans !== undefined) ? q.options[ans] : "Unanswered";
+          correctAnsText = q.options[q.correct];
+        } else if (q.type === "fill") {
+          userAnsText = ans || "Unanswered";
+          correctAnsText = q.acceptableAnswers.join(" / ");
+        } else if (q.type === "token") {
+          userAnsText = (ans !== undefined) ? `Word: "${q.sentence[ans]}"` : "Unanswered";
+          correctAnsText = `Word: "${q.sentence[q.errorIndex]}" -> Correction: "${q.errorCorrection}"`;
+        }
+
+        card.innerHTML = `
+          <div class="review-header">
+            <span style="font-size:13px; font-weight:800; color:var(--primary-dark);">
+              Q${i + 1}: ${escapeHtml(q.section)} (${escapeHtml(q.tier)})
+            </span>
+            <span style="font-size:12px; font-weight:700; color:${pass ? 'var(--correct-green)' : 'var(--wrong-red)'};">
+              <i class="fa-solid ${pass ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
+              ${pass ? 'Correct' : 'Needs Review'}
+            </span>
+          </div>
+          <p style="font-size:15px; font-weight:700; margin-bottom:8px; color:var(--charcoal);">${escapeHtml(q.stem)}</p>
+          <div style="font-size:13px; margin-bottom:6px;">
+            <strong>Your answer:</strong> <span style="color:${pass ? 'var(--correct-green)' : 'var(--wrong-red)'}; font-weight:600;">${escapeHtml(userAnsText)}</span>
+          </div>
+          ${!pass ? `<div style="font-size:13px; margin-bottom:8px;"><strong>Correct answer:</strong> <span style="color:var(--primary-dark); font-weight:700;">${escapeHtml(correctAnsText)}</span></div>` : ''}
+          <div style="font-size:12px; color:var(--text-muted); background:var(--sand-light); padding:8px 12px; border-radius:6px; margin-top:6px;">
+            ${escapeHtml(q.rule)}
+          </div>
+        `;
+
+        reviewContainer.appendChild(card);
+      });
+    }
+
+    function resetQuiz() {
+      userAnswers = {};
+      checkedQuestions = {};
+      filteredMissedIndices = null;
+      currentQuestionIndex = 0;
+      switchScreen(screenIntro);
+    }
+
+    function reviewMissedOnly() {
+      const missed = [];
+      quizData.forEach((q, idx) => {
+        const ans = userAnswers[q.id];
+        if (!isAnswerCorrect(q, ans)) {
+          missed.push(idx);
+        }
+      });
+
+      if (missed.length === 0) {
+        alert("Congratulations! You scored 100%, so there are no missed questions to review!");
+        return;
+      }
+
+      filteredMissedIndices = missed;
+      currentQuestionIndex = 0;
+      switchScreen(screenQuiz);
+      buildNavStrip();
+      renderCurrentQuestion();
+    }
+
+    window.addEventListener("DOMContentLoaded", initApp);
+  </script>
+</body>
+</html>
